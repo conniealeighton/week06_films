@@ -2,6 +2,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const form = document.querySelector('#film-input');
   form.addEventListener('submit', handleFormSubmit);
 
+  const deleteButton = document.querySelector('#Delete');
+  deleteButton.addEventListener('click', handleDelete);
+
   renderList();
 });
 
@@ -14,6 +17,11 @@ const getList = function(){
   } else {
     return [];
   }
+}
+
+const handleDelete = function(){
+  localStorage.clear();
+  renderList();
 }
 
 const handleFormSubmit = function(event){
